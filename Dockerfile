@@ -6,6 +6,6 @@ FROM node:alpine
 COPY --from=golang /go/bin/protoc-gen-go /usr/bin/
 COPY --from=golang /go/bin/protoc-gen-go-grpc /usr/bin/
 RUN set -ex \
-    && apk add --no-cache protoc \
+    && apk add --no-cache protoc protobuf-dev \
     && npm install -g ts-protoc-gen
 ENTRYPOINT ["/usr/bin/protoc"]
